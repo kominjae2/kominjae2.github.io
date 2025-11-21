@@ -86,58 +86,10 @@
             </iframe>
     </div>
 
-<script>
-  function searchMovie() {
-    const input = document.getElementById("searchInput").value.trim();
-    const movieMap = {
-      "미션 임파서블": {
-        href: "mission impossible.html",
-        img: "images/mission.jpg"
-      },
-      "하이파이브": {
-        href: "hi-five.html",
-        img: "images/hi.jpg"
-      },
-      "릴로 & 스티치": {
-        href: "lilo.html",
-        img: "images/rill.jpg"
-      },
-      "나를 모르는 그녀의 세계에서": {
-        href: "unknownher.html",
-        img: "images/she.jpg"
-      },
-      "소주전쟁": {
-        href: "sojuwar.html",
-        img: "images/soju.jpg"
-      }
-    };
-
-    let found = false;
-    const lowerInput = input.toLowerCase();
-
-    for (const title in movieMap) {
-      if (title.toLowerCase().includes(lowerInput)) {
-        document.getElementById("card-link").href = movieMap[title].href;
-        document.getElementById("card-poster").src = movieMap[title].img;
-        document.getElementById("card-title").textContent = title;
-        document.getElementById("card-container").style.display = "block";
-
-        // 기존 섹션 숨기기
-        document.querySelector(".poster-column").style.display = "none";
-        document.querySelector(".movie-column").style.display = "none";
-        document.querySelector(".upcoming-column").style.display = "none";
-
-        found = true;
-        break;
-      }
-    }
-
-    if (!found) {
-      document.getElementById("card-container").style.display = "none";
-      alert("해당 영화가 없습니다.");
-    }
-  }
-</script>
+<script src="js/movies.js"></script>
+<script src="js/search.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>

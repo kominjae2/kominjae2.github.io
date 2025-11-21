@@ -36,17 +36,37 @@
   <div class="contact">
     <h2>연락처</h2>
     <p>Email: aisarang121011@naver.com</p>
+    <p>phone: 010-6862-9062</p>
     <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
   </div>
 
   <div class="movie-button">
     <a href="index_movie.html" class="button">🎬 영화 사이트로 이동</a>
   </div>
+
+  <div class="qa-section">
+  <h2>Q & A</h2>
+
+  <form id="qaForm">
+    <label for="qaName">이름:</label>
+    <input type="text" id="qaName" placeholder="이름 입력" required><br><br>
+
+    <label for="qaMessage">질문 / 의견:</label><br>
+    <textarea id="qaMessage" rows="4" placeholder="문의나 의견을 남겨주세요" required></textarea><br><br>
+
+    <button type="submit">등록하기</button>
+  </form>
+
+  <h3>등록된 질문/답변</h3>
+  <ul id="qaList"></ul>
+</div>
 </section>
 
 <footer>
   © 2025 고민재. All rights reserved.
 </footer>
+
+<script src="js/portfolioQA.js"></script>
 
 </body>
 </html>

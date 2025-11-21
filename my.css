@@ -79,3 +79,105 @@ footer {
   color: white;
   margin-top: 40px;
 }
+/* Q&A SECTION 디자인 */
+.qa-section {
+  margin-top: 50px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #e4e4e4;
+}
+
+.qa-section h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 2px solid #333;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+#qaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#qaForm label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+#qaForm input,
+#qaForm textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+#qaForm input:focus,
+#qaForm textarea:focus {
+  outline: none;
+  border-color: #333;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+#qaForm button {
+  width: 150px;
+  padding: 12px;
+  background: #333;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  align-self: flex-start;
+}
+
+#qaForm button:hover {
+  background: #555;
+}
+
+#qaList {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+#qaList li {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  transition: 0.2s ease;
+}
+
+#qaList li:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+#qaList strong {
+  color: #333;
+  font-weight: 700;
+}
+
+/* 날짜 텍스트 스타일 */
+#qaList small {
+  color: #777;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
