@@ -10,18 +10,18 @@ class UIController {
         this.upcomingColumn = document.querySelector(".upcoming-column");
     }
 
-    showCard(movie) {
+    showMovieCard(movie) {
         this.cardLink.href = movie.url;
         this.cardPoster.src = movie.poster;
         this.cardTitle.textContent = movie.title;
         this.cardContainer.style.display = "block";
 
+        this.hideMainSections();
+    }
+
+    hideMainSections() {
         this.posterColumn.style.display = "none";
         this.movieColumn.style.display = "none";
         this.upcomingColumn.style.display = "none";
-    }
-
-    hideCard() {
-        this.cardContainer.style.display = "none";
     }
 }
