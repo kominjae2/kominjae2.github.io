@@ -1,31 +1,23 @@
-const Movie = require("../models/Movie");
+const pool = require("../db");
 
-class MovieRepository {
-  constructor() {
-    this.movies = [
-      new Movie(1, "미션 임파서블", "mission impossible.html", "images/mission.jpg"),
-      new Movie(2, "하이파이브", "hi-five.html", "images/hi.jpg"),
-      new Movie(3, "릴로 & 스티치", "lilo.html", "images/rill.jpg"),
-      new Movie(4, "나를 모르는 그녀의 세계에서", "unknownher.html", "images/she.jpg"),
-      new Movie(5, "소주전쟁", "sojuwar.html", "images/soju.jpg"),
-    ];
-  }
-
-  findAll() {
-    return this.movies;
-  }
-
-  searchByTitle(keyword) {
-    if (!keyword || keyword.trim() === "") {
-      return this.movies;
+class CommentRepository {
+    async findAll() {
+        const [rows] = await pool.query("SELECT * FROM comments ORDER BY id DESC");
+        return rows;
     }
-    const lower = keyword.toLowerCase();
-    return this.movies.filter(m => m.title.toLowerCase().includes(lower));
-  }
 
-  findById(id) {
-    return this.movies.find(m => m.id === id);
-  }
+    async create(name, message) {
+        const [result] = await pool.query(
+            "INSERT INTO comments (name, message) VALUES (?, ?)",
+            [name, message]
+        );
+        return {
+            id: result.insertId,
+            name,
+            message,
+            created_at: new Date()
+        };
+    }
 }
 
-module.exports = MovieRepository;
+module.exports = CommentRepository;
