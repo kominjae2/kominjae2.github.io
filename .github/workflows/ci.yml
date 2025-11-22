@@ -1,0 +1,32 @@
+name: Node.js CI (movie site)
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) 리포지토리 코드 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2) Node.js 설정 (버전 18)
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3) server 폴더로 이동해서 npm install
+      - name: Install dependencies
+        working-directory: ./server
+        run: npm install
+
+      # 4) 테스트 실행 (package.json의 "test" 스크립트)
+      - name: Run tests
+        working-directory: ./server
+        run: npm test
