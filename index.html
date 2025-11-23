@@ -14,52 +14,77 @@
 <section>
 
   <h2>안녕하세요, 저는 고민재입니다.</h2>
-  
+  <p>풀스택 기반의 웹 개발에 관심이 있으며, 실제로 웹 프론트엔드 · 서버 · DB · CI/CD · Docker까지 경험했습니다.</p>
+
+  <!-- 기술 스택 -->
   <div class="skills">
     <h2>보유 기술</h2>
     <ul>
-      <li>HTML / CSS</li>
-      <li>Java</li>
+      <li>HTML / CSS / JavaScript (DOM · BOM)</li>
+      <li>Java / JSP</li>
+      <li>Node.js (Express) 서버</li>
       <li>MariaDB / MySQL</li>
-      <li>Git / GitHub</li>
+      <li>Git / GitHub / GitHub Pages</li>
+      <li>CI / CD (GitHub Actions)</li>
+      <li>Docker (Node.js 컨테이너 빌드)</li>
     </ul>
   </div>
 
+  <!-- 프로젝트 -->
   <div class="projects">
     <h2>주요 프로젝트</h2>
     <ul>
-      <li>영화 정보 사이트 (현재 페이지)</li>
-      
+      <li><strong>영화 정보 사이트</strong> – Node.js 서버 + MariaDB + GitHub Pages + CI/CD + Docker</li>
+      <li>UI/UX 기반 포트폴리오 페이지 제작</li>
+      <li>고객센터 댓글/Q&A 기능 구현 (LocalStorage/Server API 병행 구현)</li>
     </ul>
   </div>
 
+  <!-- 아키텍처 섹션 -->
+  <div class="architecture">
+    <h2>아키텍처 개요</h2>
+    <p>제가 개발한 영화 사이트는 다음과 같은 구조로 구성되어 있습니다.</p>
+    <ul>
+      <li>프론트엔드: HTML/CSS/JS → GitHub Pages 자동 호스팅</li>
+      <li>백엔드: Node.js Express 서버 → API 제공</li>
+      <li>DB: MariaDB · 영화/댓글/QA 테이블 연동</li>
+      <li>CI: GitHub Actions로 push 시 자동 테스트</li>
+      <li>CD: GitHub Pages 자동 배포</li>
+      <li>Docker: 서버 Dockerfile 빌드</li>
+    </ul>
+  </div>
+
+  <!-- 연락처 -->
   <div class="contact">
     <h2>연락처</h2>
     <p>Email: aisarang121011@naver.com</p>
-    <p>phone: 010-6862-9062</p>
+    <p>Phone: 010-6862-9062</p>
     <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
   </div>
 
+  <!-- 영화 사이트 이동 버튼 -->
   <div class="movie-button">
     <a href="index_movie.html" class="button">🎬 영화 사이트로 이동</a>
   </div>
 
+  <!-- Q&A -->
   <div class="qa-section">
-  <h2>Q & A</h2>
+    <h2>Q & A</h2>
 
-  <form id="qaForm">
-    <label for="qaName">이름:</label>
-    <input type="text" id="qaName" placeholder="이름 입력" required><br><br>
+    <form id="qaForm">
+      <label for="qaName">이름:</label>
+      <input type="text" id="qaName" placeholder="이름 입력" required><br><br>
 
-    <label for="qaMessage">질문 / 의견:</label><br>
-    <textarea id="qaMessage" rows="4" placeholder="문의나 의견을 남겨주세요" required></textarea><br><br>
+      <label for="qaMessage">질문 / 의견:</label><br>
+      <textarea id="qaMessage" rows="4" placeholder="문의나 의견을 남겨주세요" required></textarea><br><br>
 
-    <button type="submit">등록하기</button>
-  </form>
+      <button type="submit">등록하기</button>
+    </form>
 
-  <h3>등록된 질문/답변</h3>
-  <ul id="qaList"></ul>
-</div>
+    <h3>등록된 질문/답변</h3>
+    <ul id="qaList"></ul>
+  </div>
+
 </section>
 
 <footer>
