@@ -14,6 +14,11 @@ class MovieRepository {
         return rows;
     }
 
+    // 🔥 라우터에서 필요한 이름: searchByTitle
+    async searchByTitle(title) {
+        return this.search(title);   // 기존 함수 재사용 (가장 효율적)
+    }
+
     async findById(id) {
         const [rows] = await pool.query(
             "SELECT * FROM movies WHERE id = ?",
