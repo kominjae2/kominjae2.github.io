@@ -11,6 +11,11 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+// ✅ 여기! "/" 기본 라우트 추가
+app.get("/", (req, res) => {
+    res.send("Movie API Server is running...");
+});
+
 app.use("/api/movies", movieRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/qa", qaRoutes);

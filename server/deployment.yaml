@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie-server
+  template:
+    metadata:
+      labels:
+        app: movie-server
+    spec:
+      containers:
+        - name: movie-server
+          image: movie-server
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
