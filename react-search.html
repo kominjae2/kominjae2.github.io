@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>React 영화 검색</title>
+
+  <!-- React 18 CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel (JSX 사용 허용) -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      padding: 40px;
+      text-align: center;
+    }
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    img { border-radius: 8px; }
+    input {
+      padding: 10px;
+      width: 200px;
+    }
+    button {
+      padding: 10px 16px;
+      margin-left: 8px;
+      cursor: pointer;
+      background: #333;
+      color: white;
+      border-radius: 6px;
+      border: none;
+    }
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      color: #0055ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>React 기반 영화 검색</h1>
+<p>이 페이지는 과제 요건 중 웹 프레임워크(React) 활용을 만족하는 샘플입니다.</p>
+
+<div id="root"></div>
+
+<!-- 돌아가기 버튼 -->
+<a href="index_movie.html">← 영화 정보 사이트로 돌아가기</a>
+
+
+<script type="text/babel">
+
+function MovieSearch() {
+  const [query, setQuery] = React.useState("");
+  const [result, setResult] = React.useState(null);
+
+  // 네 실제 이미지 경로 그대로 사용함
+  const movies = [
+    { title: "미션 임파서블", img: "images/mission.jpg" },
+    { title: "하이파이브", img: "images/hi.jpg" },
+    { title: "릴로 & 스티치", img: "images/rill.jpg" },
+    { title: "나를 모르는 그녀의 세계에서", img: "images/she.jpg" },
+    { title: "소주전쟁", img: "images/soju.jpg" }
+  ];
+
+  function search() {
+    const r = movies.find(m =>
+      m.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setResult(r || "none");
+  }
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="영화 검색"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+
+      <button onClick={search}>검색</button>
+
+      {result && result !== "none" && (
+        <div className="card">
+          <h2>{result.title}</h2>
+          <img src={result.img} width="150" alt="poster" />
+        </div>
+      )}
+
+      {result === "none" && (
+        <p style={{ marginTop: "20px", color: "red" }}>검색 결과 없음</p>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<MovieSearch />);
+
+</script>
+
+</body>
+</html>

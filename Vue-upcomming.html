@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue 개봉 예정작</title>
+
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <style>
+    body { font-family: Arial; padding: 40px; text-align: center; }
+    table { margin: 20px auto; border-collapse: collapse; width: 400px; }
+    th, td { border: 1px solid #ccc; padding: 10px; }
+    th { background: #42b883; color: white; }
+  </style>
+</head>
+<body>
+
+<h1>Vue 기반 개봉 예정작 목록</h1>
+
+<div id="app">
+  <table>
+    <tr><th>영화명</th><th>개봉일</th></tr>
+    <tr v-for="m in movies" :key="m.title">
+      <td>{{ m.title }}</td>
+      <td>{{ m.date }}</td>
+    </tr>
+  </table>
+
+  <button @click="sortByName">이름순 정렬</button>
+  <button @click="sortByDate">개봉일순 정렬</button>
+</div>
+
+<script>
+Vue.createApp({
+  data() {
+    return {
+      movies: [
+        { title: "신명", date: "2025-05-28" },
+        { title: "씨너스:죄인들", date: "2025-05-28" },
+        { title: "말없는 소녀", date: "2025-06-03" },
+        { title: "드래곤 길들이기", date: "2025-06-06" },
+        { title: "어브로드", date: "2025-06-12" }
+      ]
+    };
+  },
+  methods: {
+    sortByName() {
+      this.movies.sort((a, b) => a.title.localeCompare(b.title));
+    },
+    sortByDate() {
+      this.movies.sort((a, b) => a.date.localeCompare(b.date));
+    }
+  }
+}).mount("#app");
+</script>
+
+</body>
+</html>
