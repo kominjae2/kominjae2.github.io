@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue 개봉 예정작</title>
+
+  <link rel="stylesheet" href="style-framework.css">
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>
+    <a href="index_movie.html" class="logo-title">
+      <img src="images/logo.png" class="logo-img">
+      영화정보사이트
+    </a>
+  </h1>
+</header>
+
+<nav>
+  <a href="index_movie.html">메인</a>
+  <a href="react-search.html">React 검색</a>
+  <a href="vue-upcoming.html" style="color:#42b883; font-weight:bold;">Vue 예정작</a>
+  <a href="angular-comments.html">Angular 댓글</a>
+</nav>
+
+<div class="container" id="app">
+  <h2>개봉 예정작(VUE 렌더링)</h2>
+
+  <table>
+    <tr><th>영화명</th><th>개봉일</th></tr>
+    <tr v-for="m in movies" :key="m.title">
+      <td>{{ m.title }}</td>
+      <td>{{ m.date }}</td>
+    </tr>
+  </table>
+
+  <button @click="sortByName">이름순 정렬</button>
+  <button @click="sortByDate">개봉일순 정렬</button>
+</div>
+
+<script>
+Vue.createApp({
+  data() {
+    return {
+      movies: [
+        { title: "신명", date: "2025-05-28" },
+        { title: "씨너스: 죄인들", date: "2025-05-28" },
+        { title: "말없는 소녀", date: "2025-06-03" },
+        { title: "드래곤 길들이기", date: "2025-06-06" },
+        { title: "어브로드", date: "2025-06-12" }
+      ]
+    }
+  },
+  methods: {
+    sortByName() { this.movies.sort((a, b) => a.title.localeCompare(b.title)); },
+    sortByDate() { this.movies.sort((a, b) => a.date.localeCompare(b.date)); }
+  }
+}).mount("#app");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="commentApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular 댓글 시스템</title>
+
+  <link rel="stylesheet" href="style-framework.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="CommentController">
+
+<header>
+  <h1>
+    <a href="index_movie.html" class="logo-title">
+      <img src="images/logo.png" class="logo-img">
+      영화정보사이트
+    </a>
+  </h1>
+</header>
+
+<nav>
+  <a href="index_movie.html">메인</a>
+  <a href="react-search.html">React 검색</a>
+  <a href="vue-upcoming.html">Vue 예정작</a>
+  <a href="angular-comments.html" style="color:#dd0031; font-weight:bold;">Angular 댓글</a>
+</nav>
+
+<div class="container comment-box">
+
+  <h2>Angular 기반 댓글 시스템</h2>
+
+  <input type="text" ng-model="name" placeholder="이름 입력"><br><br>
+  <textarea ng-model="text" rows="3" placeholder="댓글 입력"></textarea><br><br>
+  <button ng-click="add()">등록</button>
+
+  <h3>등록된 댓글</h3>
+  <div class="comment-item" ng-repeat="c in comments">
+    <strong>{{ c.name }}</strong>: {{ c.text }}
+  </div>
+
+</div>
+
+<script>
+angular.module("commentApp", [])
+.controller("CommentController", function($scope) {
+
+  $scope.comments = [
+    { name:"홍길동", text:"빠른 답변 감사합니다!" },
+    { name:"김영희", text:"예매 취소가 잘 안돼요." }
+  ];
+
+  $scope.add = function() {
+    if(!$scope.name || !$scope.text) return;
+    $scope.comments.push({ name:$scope.name, text:$scope.text });
+    $scope.name = "";
+    $scope.text = "";
+  };
+});
+</script>
+
+</body>
+</html>
